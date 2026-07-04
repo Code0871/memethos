@@ -6,9 +6,9 @@ const CONFIG_FILE_PATH: &str = "src/config/config.toml";
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct Config {
-    server: Server,
-    storage: Storage,
-    logging: Logging,
+    pub server: Server,
+    pub storage: Storage,
+    pub logging: Logging,
 }
 
 #[derive(Debug, Deserialize, Clone)]
