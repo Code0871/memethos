@@ -1,0 +1,30 @@
+# configs of db
+
+# server configuration
+
+[server]
+host = "127.0.0.1"      # ip address to bind the server to
+port = 8071             # port to bind the server to
+workers = 4             # number of worker threads to spawn for handling requests
+
+[storage]
+data_dir = "./data"     # directory to store the database files
+wal_size = 1024         # size of the write-ahead log in megabytes
+snapshot_interval = 90  # interval in seconds to take snapshots of the database
+
+[logging]
+log_level = "info"      # logging level (error, warn, info, debug, trace
+log_format = "text"     # logging format (text, json)
+
+
+# permissions configuration
+
+# [roles.admin]
+# permissions = [
+#     "*:*"
+# ]
+
+# [roles.user]
+# permissions = [
+#     "read:*"
+# ]
