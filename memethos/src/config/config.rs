@@ -1,4 +1,4 @@
-use std::{fs, io::Error};
+use std::{fs};
 use toml;
 use serde::Deserialize;
 use crate::{ConfigError};
@@ -40,6 +40,7 @@ pub struct Wal {
     pub max_wal_files: u32,
     pub max_size_limit: u64,
     pub sync_interval_ms: u64,
+    pub sync_timeout_ms: u64,
     pub max_batch_size: u32,
     pub flush_on_shutdown: bool,
     pub auto_recover: bool,
@@ -68,6 +69,7 @@ impl Default for Config {
                 max_wal_files: 10,
                 max_size_limit: 1073741824, // 1GB
                 sync_interval_ms: 100,
+                sync_timeout_ms: 5000,
                 max_batch_size: 10000,
                 flush_on_shutdown: true,
                 auto_recover: true,
