@@ -10,7 +10,17 @@ fn main() {
     //###################################
 
     let per = Config::load_from_file();
-    println!("{:?}", per);
+
+    match per {
+        Ok(config) => {
+            println!("All is Ok");
+            println!("{:?}", config);
+        }
+        Err(e) => {
+            eprintln!("❌ Error: {}", e);
+            panic!();
+        }
+    }
 
     let specific_uuid = Uuid::parse_str("123e4567-e89b-12d3-a456-426614174000").unwrap();    
     

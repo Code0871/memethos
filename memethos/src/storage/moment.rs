@@ -6,7 +6,7 @@ use uuid::Uuid;
 pub struct Moment {
     pub uuid: uuid::Uuid,
     pub chain_id: uuid::Uuid,
-    pub vector: Vec<f64>,
+    pub vector: Vec<f32>,
     pub timestamp: DateTime<Utc>,
     pub payload: HashMap<String, String>,
     pub next_moment_ids: Option<Vec<Uuid>>,
@@ -16,7 +16,7 @@ pub struct Moment {
 pub struct MomentBuilder {
     uuid: Option<Uuid>,
     chain_id: Uuid,
-    vector: Vec<f64>,
+    vector: Vec<f32>,
     timestamp: DateTime<Utc>,
     payload: HashMap<String,String>,
     next_moments_ids: Option<Vec<Uuid>>,
@@ -24,7 +24,7 @@ pub struct MomentBuilder {
 }
 
 impl MomentBuilder {
-    pub fn new(chain_id: Uuid, vector: Vec<f64>) -> Self{
+    pub fn new(chain_id: Uuid, vector: Vec<f32>) -> Self{
         Self{
             uuid: None,
             chain_id,
@@ -76,7 +76,7 @@ impl MomentBuilder {
 
 
 impl Moment {
-    pub fn builder(chain_id: Uuid, vector: Vec<f64>) -> MomentBuilder {
+    pub fn builder(chain_id: Uuid, vector: Vec<f32>) -> MomentBuilder {
         MomentBuilder::new(chain_id, vector)
     }
 }

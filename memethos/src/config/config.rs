@@ -66,7 +66,7 @@ impl Default for Config {
                 dir: "./wal".to_string(),
                 file_prefix: "wal_".to_string(),
                 max_wal_files: 10,
-                max_size_limit: 1024 * 1024 * 1024, // 1GB
+                max_size_limit: 1073741824, // 1GB
                 sync_interval_ms: 100,
                 max_batch_size: 10000,
                 flush_on_shutdown: true,
@@ -79,11 +79,11 @@ impl Default for Config {
 impl Config {
     // TODO: Добавить обработку ошибок и загрузку по дефолту, если файл не найден или не верный формат
     pub fn load_from_file() -> Result<Self, ConfigError> {
-        
         let parse_config = fs::read_to_string(CONFIG_FILE_PATH)?;
 
         let conf: Config = toml::from_str(&parse_config)?;
 
         Ok(conf)
+        
     }
 }

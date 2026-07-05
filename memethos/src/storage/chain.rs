@@ -4,7 +4,7 @@
     #[derive(Debug, Clone)]
     pub struct Chain {
         pub uuid: Uuid,
-        pub vector: Vec<f64>,
+        pub vector: Vec<f32>,
         pub moment_ids: Vec<Uuid>,
         pub payload: HashMap<String, String>,
         pub is_deleted: bool,
@@ -13,7 +13,7 @@
     #[derive(Debug, Clone, Default)]
     pub struct ChainBuilder  {
         uuid : Option<Uuid>,
-        vector: Vec<f64>,
+        vector: Vec<f32>,
         moment_ids: Vec<Uuid>,
         payload :HashMap <String,String>,
         is_deleted: bool
@@ -22,7 +22,7 @@
     impl ChainBuilder {
 
         // Default constructor
-        pub fn new(vector: Vec<f64>) -> Self {
+        pub fn new(vector: Vec<f32>) -> Self {
             Self {
                 uuid: None,
                 vector,
@@ -72,7 +72,7 @@
     }
 
     impl Chain {    
-        pub fn builder(vector: Vec<f64>) -> ChainBuilder {
+        pub fn builder(vector: Vec<f32>) -> ChainBuilder {
             ChainBuilder::new(vector)
         }
     }
