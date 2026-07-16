@@ -1,0 +1,28 @@
+[server]
+host = "127.0.0.1"      # ip address to bind the server to
+port = 8071             # port to bind the server to
+workers = 4             # number of worker threads to spawn for handling requests
+
+[storage]
+data_dir = "./data"     # directory to store the database files
+snapshot_interval = 90  # interval in seconds to take snapshots of the database
+
+[logging]
+level = "info"      # logging level (error, warn, info, debug, trace
+format = "text"     # logging format (text, json)
+
+[wal]
+enabled = true
+dir= "./wal"
+file_prefix = "wal_"
+max_wal_files = 10
+max_size_limit = 1073741824 # bytes = 1GB
+sync_interval_ms = 100
+sync_timeout_ms = 5000
+max_batch_size = 10000
+flush_on_shutdown = true
+auto_recover = true
+
+[collection]
+dir = "./data/collections"
+delete_dir = "./data/del_collections"
