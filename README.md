@@ -1,4 +1,4 @@
-# Memethos
+# MindMap
 
 <blockquote>
   ⚠️ На стадии активной разработки<br>
