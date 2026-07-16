@@ -1,6 +1,7 @@
 use std::collections::HashMap;
 use memethos::Config;
 use memethos::{Chain, Moment};
+use memethos::estimate::estimate::*;
 use uuid::Uuid;
 
 fn main() {
@@ -42,4 +43,13 @@ fn main() {
         .unwrap();
 
     println!("{:?}", moment);
+
+        let input = EstimateInput::new(
+            768,                  // dimension
+            1_000_000,          // vector_count
+            DataType::I8,       // dtype (4 bytes)
+            3,            // vectors_per_dot
+        );
+
+        estimate(input);
 }

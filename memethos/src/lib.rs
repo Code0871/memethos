@@ -5,6 +5,7 @@ pub mod errors;
 // pub mod index;
 // pub mod api;
 // pub mod search;
+pub mod estimate;
 
 pub use config::config::Config;
 pub use storage::chain::Chain;

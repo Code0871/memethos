@@ -10,7 +10,8 @@ pub struct Config {
     pub server: Server,
     pub storage: Storage,
     pub logging: Logging,
-    pub wal: Wal
+    pub wal: Wal,
+    pub collection: Collection
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -28,8 +29,8 @@ pub struct Storage {
 
 #[derive(Debug, Deserialize, Clone)]
 pub struct Logging {
-    pub log_level: String,
-    pub log_format: String,
+    pub level: String,
+    pub format: String,
 }
 
 #[derive(Debug, Deserialize, Clone)]
@@ -46,6 +47,12 @@ pub struct Wal {
     pub auto_recover: bool,
 }
 
+#[derive(Debug, Deserialize, Clone)]
+pub struct Collection {
+    pub dir: String,
+    pub delete_dir: String
+}
+
 impl Default for Config {
     fn default() -> Self {
         Config {
@@ -59,8 +66,8 @@ impl Default for Config {
                 snapshot_interval: 90,
             },
             logging: Logging {
-                log_level: "info".to_string(),
-                log_format: "text".to_string(),
+                level: "info".to_string(),
+                format: "text".to_string(),
             },
             wal: Wal {
                 enabled: true,
@@ -73,13 +80,16 @@ impl Default for Config {
                 max_batch_size: 10000,
                 flush_on_shutdown: true,
                 auto_recover: true,
+            },
+            collection: Collection {
+                dir: "./data/collections".to_string(),
+                delete_dir: "./data/del_collections".to_string(),
             }
         }
     }
 }
 
 impl Config {
-    // TODO: Добавить обработку ошибок и загрузку по дефолту, если файл не найден или не верный формат
     pub fn load_from_file() -> Result<Self, ConfigError> {
         let parse_config = fs::read_to_string(CONFIG_FILE_PATH)?;
 

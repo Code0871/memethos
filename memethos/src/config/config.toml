@@ -5,12 +5,11 @@ workers = 4             # number of worker threads to spawn for handling request
 
 [storage]
 data_dir = "./data"     # directory to store the database files
-wal_size = 1024         # size of the write-ahead log in megabytes
 snapshot_interval = 90  # interval in seconds to take snapshots of the database
 
 [logging]
-log_level = "info"      # logging level (error, warn, info, debug, trace
-log_format = "text"     # logging format (text, json)
+level = "info"      # logging level (error, warn, info, debug, trace
+format = "text"     # logging format (text, json)
 
 [wal]
 enabled = true
@@ -23,3 +22,7 @@ sync_timeout_ms = 5000
 max_batch_size = 10000
 flush_on_shutdown = true
 auto_recover = true
+
+[collection]
+dir = "./data/collections"
+delete_dir = "./data/del_collections"
