@@ -1,9 +1,9 @@
-# Architecture
+# Architecture of vector space
 
 ## Basic definitions
  - Chain — an ordered sequence of moments united by a common context
  - Moment — an atomic unit of memory (a single interaction/event)
-
+architecture_vector_space.md
 ## Basic Architecture 
 The architecture consists of two layers:
  - Chain layer (Chains)

@@ -28,4 +28,4 @@ Moment же хранится отдельно — как собственный 
 
 ## Полезные материалы
  - [Введение](docs/src/intro.md)
- - [Архитекутура системы](docs/src/architecture.md)
+ - [Архитекутура векторного пространства](docs/src/architecture_vector_space.md)
