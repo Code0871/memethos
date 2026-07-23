@@ -9,5 +9,5 @@ pub mod estimate;
 
 pub use config::config::Config;
 pub use storage::chain::Chain;
-pub use storage::moment::Moment;
+// pub use storage::moment::Moment;
 pub use errors::{ConfigError, Result};

@@ -3,16 +3,24 @@ use chrono::{DateTime, Utc};
 use uuid::Uuid;
 
 #[derive(Debug, Clone)]
-pub struct Moment {
+pub struct MomentStore <const dim: usize> {
+    vectors: HashMap<String, [f32; dim]>,
+    moments: Moments<dim>,
+}
+
+#[derive(Debug, Clone)]
+pub struct Moments <const dim: usize> {
     pub uuid: uuid::Uuid,
     pub chain_id: uuid::Uuid,
-    pub vector: Vec<f32>,
+    pub vector: HashMap<String, [f32; dim]>,
     pub timestamp: DateTime<Utc>,
     pub payload: HashMap<String, String>,
     pub next_moment_ids: Option<Vec<Uuid>>,
     pub prev_moment_ids: Option<Vec<Uuid>>,
 }
 
+
+/*
 pub struct MomentBuilder {
     uuid: Option<Uuid>,
     chain_id: Uuid,
@@ -79,4 +87,4 @@ impl Moment {
     pub fn builder(chain_id: Uuid, vector: Vec<f32>) -> MomentBuilder {
         MomentBuilder::new(chain_id, vector)
     }
-}
+}*/
